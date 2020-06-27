@@ -2,6 +2,8 @@
 function UI(){
   
     }
+
+// Arayüze Ekleme
 UI.prototype.addFilmToUI=function(newFilm){ 
 const filmList=document.getElementById("films");
 filmList.innerHTML +=
@@ -12,6 +14,7 @@ filmList.innerHTML +=
 <td><a href="#" id = "delete-film" class = "btn btn-danger">Filmi Sil</a></td>
 </tr>`;
 }
+// Yüklendikten sonra iputun temizlenmesi
 UI.prototype.clearInputs=function(element1,element2,element3){
     element1.value="";
     element2.value="";
@@ -28,7 +31,7 @@ UI.prototype.displayMessage=function(message,type){
         div.remove();
     },2000)
 }
-// Storage'dan alıp arayüze ekleme
+// Storage'dan arayüze ekleme
 UI.prototype.loadAllFilms=function(films){
     const filmList=document.getElementById("films");
     films.forEach(function(film){
@@ -39,4 +42,8 @@ UI.prototype.loadAllFilms=function(films){
         <td><a href="#" id = "delete-film" class = "btn btn-danger">Filmi Sil</a></td>
         </tr>`;
     });
+}
+// Arayüzden Silme
+UI.prototype.deleteFilmFromUI=function(element){
+    element.parentElement.parentElement.remove();
 }
